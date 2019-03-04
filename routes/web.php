@@ -11,18 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('artwork');
-});
+Route::get('/', 'PagesController@home');
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+Route::get('/welcome', 'PagesController@welcome');
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/about', 'PagesController@about');
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/login', 'PagesController@login');
