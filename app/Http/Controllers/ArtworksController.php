@@ -11,8 +11,8 @@ class ArtworksController extends Controller
     {
         $artworks = Artwork::all();
 
-        return $artworks;
+        // return $artworks;
 
-        return view('artworks.index');
+        return view('artworks.index', ['artworks' => $artworks]);
     }
 }

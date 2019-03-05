@@ -7,8 +7,14 @@
         </div>
     </div>
 
-    @foreach(artworks as item)
-    {{ item.artist }}
+    <ul>
+    @foreach ($artworks as $artwork)
+        <li>
+            {{ $artwork->title }},
+            {{ $artwork->artist }},
+            {{ $artwork->medium }}
+        </li>
     @endforeach
+    </ul>
 
 @endsection
