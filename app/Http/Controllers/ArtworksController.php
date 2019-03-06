@@ -15,4 +15,9 @@ class ArtworksController extends Controller
 
         return view('artworks.index', ['artworks' => $artworks]);
     }
+
+    public function create()
+    {
+        return view('artworks.create');
+    }
 }

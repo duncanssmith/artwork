@@ -20,3 +20,5 @@ Route::get('/about', 'PagesController@about');
 Route::get('/login', 'PagesController@login');
 
 Route::get('/artworks', 'ArtworksController@index');
+
+Route::get('/artworks/create', 'ArtworksController@create');
