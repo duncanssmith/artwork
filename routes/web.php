@@ -19,6 +19,25 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/login', 'PagesController@login');
 
-Route::get('/artworks', 'ArtworksController@index');
+/*
+    GET /artworks (index)
+    GET /artworks/create (create)
+    GET /artworks/1 (show)
+    POST /artworks (store)
+    GET /artworks/1/edit (edit)
+    PATCH /artworks/1 (update)
+    DELETE /artworks/1 (destroy)
 
+*/
+
+Route::resource('artworks', 'ArtworksController');
+
+/*
+Route::get('/artworks', 'ArtworksController@index');
 Route::get('/artworks/create', 'ArtworksController@create');
+Route::get('/artworks/{artwork}', 'ArtworksController@show');
+Route::post('/artworks', 'ArtworksController@store');
+Route::get('/artworks/{artwork}/edit', 'ArtworksController@edit');
+Route::patch('/artworks/{artwork}', 'ArtworksController@update');
+Route::delete('/artworks/{artwork}', 'ArtworksController@destroy');
+*/
