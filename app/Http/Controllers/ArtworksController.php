@@ -27,7 +27,6 @@ class ArtworksController extends Controller
      */
     public function create()
     {
-        //
         return view('artworks.create');
     }
 
@@ -39,8 +38,16 @@ class ArtworksController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        return request()->all();
+        $artwork = new Artwork();
+        $artwork->reference = request('reference');
+        $artwork->title = request('title');
+        $artwork->artist = request('artist');
+        $artwork->media = request('media');
+        $artwork->dimensions = request('dimensions');
+        $artwork->date = request('date');
+        $artwork->description = request('description');
+        $artwork->notes = request('notes');
+        $artwork->save();
 
         return redirect('/artworks');
     }
@@ -53,7 +60,6 @@ class ArtworksController extends Controller
      */
     public function show(Artwork $artwork)
     {
-        //
     }
 
     /**
@@ -64,7 +70,6 @@ class ArtworksController extends Controller
      */
     public function edit($id)
     {
-
         $artwork = Artwork::find($id);
 
         return view('artworks.edit', ['artwork' => $artwork]);
@@ -79,7 +84,14 @@ class ArtworksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $artwork = Artwork::find($id);
+
+        $artwork->title = request('title');
+        $artwork->reference = request('reference');
+
+        $artwork->save();
+
+        return redirect('/artworks');
     }
 
     /**
@@ -90,6 +102,5 @@ class ArtworksController extends Controller
      */
     public function destroy($id)
     {
-        //
     }
 }

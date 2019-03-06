@@ -27,7 +27,6 @@ Route::get('/login', 'PagesController@login');
     GET /artworks/1/edit (edit)
     PATCH /artworks/1 (update)
     DELETE /artworks/1 (destroy)
-
 */
 
 Route::resource('artworks', 'ArtworksController');

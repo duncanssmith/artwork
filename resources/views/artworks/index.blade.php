@@ -1,20 +1,47 @@
 @extends('layout')
 
 @section('content')
+    @section('banner')
+
+    @endsection
+
     <div class="content">
         <div class="">
             Artworks
         </div>
-    </div>
 
-    <ul>
-    @foreach ($artworks as $artwork)
-        <li>
-            {{ $artwork->title }},
-            {{ $artwork->artist }},
-            {{ $artwork->medium }}
-        </li>
-    @endforeach
-    </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Ref</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Medium</th>
+                    <th>Date</th>
+                    <th>Dimensions</th>
+                    <th>Description</th>
+                    <th>Notes</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($artworks as $artwork)
+                    <tr>
+                        <td>image</td>
+                        <td>{{ $artwork->reference }}</td>
+                        <td>{{ $artwork->title }}</td>
+                        <td>{{ $artwork->artist }}</td>
+                        <td>{{ $artwork->medium }}</td>
+                        <td>{{ $artwork->date }}</td>
+                        <td>{{ $artwork->dimensions}}</td>
+                        <td>{{ $artwork->description}}</td>
+                        <td>{{ $artwork->notes }}</td>
+                        <td><a href="/artworks/{{ $artwork->id }}/edit">Edit</a></td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
 @endsection

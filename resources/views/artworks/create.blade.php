@@ -10,35 +10,35 @@
             {{ csrf_field() }}
 
             <div>
-                <input type="text" name="reference" placeholder="Artwork reference">
+                <input type="text" name="reference" placeholder="reference">
             </div>
 
             <div>
-                <input type="text" name="artist" placeholder="Artwork artist">
+                <input type="text" name="artist" placeholder="artist">
             </div>
 
             <div>
-                <input type="text" name="title" placeholder="Artwork title">
+                <input type="text" name="title" placeholder="title">
             </div>
 
             <div>
-                <input type="text" name="media" placeholder="Artwork media">
+                <input type="text" name="media" placeholder="media">
             </div>
 
             <div>
-                <input type="text" name="dimensions" placeholder="Artwork dimensions">
+                <input type="text" name="dimensions" placeholder="dimensions">
             </div>
 
             <div>
-                <input type="text" name="date" placeholder="Artwork date">
+                <input type="text" name="date" placeholder="date">
             </div>
 
             <div>
-                <input type="text" name="description" placeholder="Artwork description">
+                <input type="text" name="description" placeholder="description">
             </div>
 
             <div>
-                <input type="text" name="notes" placeholder="Artwork notes">
+                <input type="text" name="notes" placeholder="notes">
             </div>
 
             <div>

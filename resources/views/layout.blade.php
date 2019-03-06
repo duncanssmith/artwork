@@ -13,9 +13,11 @@
 
     </head>
     <body>
-        <div class="container">
-            @include('nav')
-            @yield('content')
+        <div class="container-fluid">
+            <div class="jumbotron">
+                @include('nav')
+                @yield('content')
+            </div>
         </div>
     </body>
 </html>
