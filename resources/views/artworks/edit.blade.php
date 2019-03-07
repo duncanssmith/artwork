@@ -7,10 +7,10 @@
         <div class="">
             Edit artwork
         </div>
-        <form method="POST" action="/artworks">
+        <form method="POST" action="/artworks/{{ $artwork->id }}">
 
-            {{ method_field('PATCH') }}
-            {{ csrf_field() }}
+            @csrf
+            @method('PATCH')
 
             <div>
                 <input type="text" name="reference" placeholder="reference" value="{{ $artwork->reference}}">
@@ -44,11 +44,19 @@
                 <input type="text" name="notes" placeholder="notes" value="{{ $artwork->notes }}">
             </div>
 
+            <br/>
             <div>
-                <button type="submit">Update artwork</button>
-                <a class = "btn btn-danger" href="/delete">Delete</>
+                <button class="btn btn-sm btn-outline btn-info" type="submit">Update artwork</button>
             </div>
 
+        </form>
+
+        <form method="POST" action="/artworks/{{ $artwork->id }}">
+            @csrf
+            @method('DELETE')
+            <div>
+                <button class="btn btn-sm btn-outline btn-danger">Delete</button>
+            </div>
         </form>
     </div>
 @endsection

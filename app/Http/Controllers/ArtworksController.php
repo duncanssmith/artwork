@@ -84,14 +84,24 @@ class ArtworksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $artwork = Artwork::find($id);
+        dd('ello');
 
-        $artwork->title = request('title');
-        $artwork->reference = request('reference');
+        // $artwork = Artwork::findOrFail($id);
 
-        $artwork->save();
+        // $artwork->update($request->all());
 
-        return redirect('/artworks');
+        // $artwork->reference = request('reference');
+        // $artwork->title = request('title');
+        // $artwork->artist = request('artist');
+        // $artwork->media = request('media');
+        // $artwork->dimensions = request('dimensions');
+        // $artwork->date = request('date');
+        // $artwork->description = request('description');
+        // $artwork->notes = request('notes');
+        // $artwork->save();
+        // return redirect('/artworks');
+
+        // return view('artworks.update', ['artwork' => $artwork]);
     }
 
     /**
@@ -102,5 +112,6 @@ class ArtworksController extends Controller
      */
     public function destroy($id)
     {
+        dd("HELLO");
     }
 }
