@@ -84,7 +84,7 @@ class ArtworksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd('ello');
+        dd("HELLO - Update function");
 
         // $artwork = Artwork::findOrFail($id);
 
@@ -112,6 +112,6 @@ class ArtworksController extends Controller
      */
     public function destroy($id)
     {
-        dd("HELLO");
+        dd("HELLO - Destroy function");
     }
 }
