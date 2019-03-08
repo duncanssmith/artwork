@@ -23,13 +23,14 @@
                     <th>Description</th>
                     <th>Notes</th>
                     <th>&nbsp;</th>
+                    <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($artworks as $artwork)
                     <tr>
                         <td>image</td>
-                        <td>{{ $artwork->reference }}</td>
+                        <td><a href="/artworks/{{ $artwork->id }}">{{ $artwork->reference }}</a></td>
                         <td>{{ $artwork->title }}</td>
                         <td>{{ $artwork->artist }}</td>
                         <td>{{ $artwork->medium }}</td>
@@ -37,6 +38,7 @@
                         <td>{{ $artwork->dimensions}}</td>
                         <td>{{ $artwork->description}}</td>
                         <td>{{ $artwork->notes }}</td>
+                        <td><a href="/artworks/{{ $artwork->id }}">Show</a></td>
                         <td><a href="/artworks/{{ $artwork->id }}/edit">Edit</a></td>
                     </tr>
                 @endforeach

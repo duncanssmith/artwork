@@ -60,6 +60,10 @@ class ArtworksController extends Controller
      */
     public function show(Artwork $artwork)
     {
+        $artwork = Artwork::findOrFail($id);
+
+        return view('artworks.show', ['artwork' => $artwork]);
+
     }
 
     /**
@@ -70,7 +74,7 @@ class ArtworksController extends Controller
      */
     public function edit($id)
     {
-        $artwork = Artwork::find($id);
+        $artwork = Artwork::findOrFail($id);
 
         return view('artworks.edit', ['artwork' => $artwork]);
     }
@@ -84,22 +88,21 @@ class ArtworksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd("HELLO - Update function");
-
-        // $artwork = Artwork::findOrFail($id);
+        $artwork = Artwork::findOrFail($id);
 
         // $artwork->update($request->all());
 
-        // $artwork->reference = request('reference');
-        // $artwork->title = request('title');
-        // $artwork->artist = request('artist');
-        // $artwork->media = request('media');
-        // $artwork->dimensions = request('dimensions');
-        // $artwork->date = request('date');
-        // $artwork->description = request('description');
-        // $artwork->notes = request('notes');
-        // $artwork->save();
-        // return redirect('/artworks');
+        $artwork->reference = request('reference');
+        $artwork->title = request('title');
+        $artwork->artist = request('artist');
+        $artwork->media = request('media');
+        $artwork->dimensions = request('dimensions');
+        $artwork->date = request('date');
+        $artwork->description = request('description');
+        $artwork->notes = request('notes');
+        $artwork->save();
+
+        return redirect('/artworks');
 
         // return view('artworks.update', ['artwork' => $artwork]);
     }
@@ -112,6 +115,8 @@ class ArtworksController extends Controller
      */
     public function destroy($id)
     {
-        dd("HELLO - Destroy function");
+        Artwork->findOrFail($id)->delete();
+
+        return redirect('/artworks');
     }
 }
