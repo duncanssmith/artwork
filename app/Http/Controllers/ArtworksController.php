@@ -39,15 +39,18 @@ class ArtworksController extends Controller
     public function store(Request $request)
     {
         $artwork = new Artwork();
-        $artwork->reference = request('reference');
-        $artwork->title = request('title');
-        $artwork->artist = request('artist');
-        $artwork->media = request('media');
-        $artwork->dimensions = request('dimensions');
-        $artwork->date = request('date');
-        $artwork->description = request('description');
-        $artwork->notes = request('notes');
-        $artwork->save();
+
+        Artwork->create([
+
+            'reference' = request('reference');
+            'title' = request('title');
+            'artist' = request('artist');
+            'media' = request('media');
+            'dimensions' = request('dimensions');
+            'date' = request('date');
+            'description' = request('description');
+            'notes' = request('notes');
+        ]);
 
         return redirect('/artworks');
     }
@@ -60,8 +63,6 @@ class ArtworksController extends Controller
      */
     public function show(Artwork $artwork)
     {
-        $artwork = Artwork::findOrFail($id);
-
         return view('artworks.show', ['artwork' => $artwork]);
 
     }
@@ -72,10 +73,8 @@ class ArtworksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Artwork $artwork)
     {
-        $artwork = Artwork::findOrFail($id);
-
         return view('artworks.edit', ['artwork' => $artwork]);
     }
 
@@ -86,10 +85,8 @@ class ArtworksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Artwork $artwork)
     {
-        $artwork = Artwork::findOrFail($id);
-
         // $artwork->update($request->all());
 
         $artwork->reference = request('reference');
@@ -113,9 +110,9 @@ class ArtworksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Artwork $artwork)
     {
-        Artwork->findOrFail($id)->delete();
+        $artwork->delete();
 
         return redirect('/artworks');
     }
