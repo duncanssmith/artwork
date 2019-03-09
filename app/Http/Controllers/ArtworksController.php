@@ -1,11 +1,29 @@
 <?php
-
+/**
+ * File doc
+ *
+ * @phpversion php7.3.0
+ * @category   Controller
+ * @package    Artwork
+ * @author     Duncan Smith <duncanssmith@gmail.com>
+ * @license    12341234 <blah@blah.com>
+ * @link       Wombat <duncanssmith@gmail.com>
+ */
 namespace App\Http\Controllers;
 
 use App\Artwork;
 
 use Illuminate\Http\Request;
 
+/**
+ * The Artworks controller
+ *
+ * @category Controller
+ * @package  Artwork
+ * @author   Duncan Smith <duncanssmith@gmail.com>
+ * @license  12341234 <blah@blah.com>
+ * @link     Wombat <duncanssmith@gmail.com>
+ */
 class ArtworksController extends Controller
 {
     /**
@@ -33,24 +51,11 @@ class ArtworksController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        $artwork = new Artwork();
-
-        Artwork->create([
-
-            'reference' = request('reference');
-            'title' = request('title');
-            'artist' = request('artist');
-            'media' = request('media');
-            'dimensions' = request('dimensions');
-            'date' = request('date');
-            'description' = request('description');
-            'notes' = request('notes');
-        ]);
+        Artwork::create(request(['reference', 'title', 'artist', 'media', 'dimensions', 'date', 'description', 'notes']));
 
         return redirect('/artworks');
     }
@@ -58,7 +63,8 @@ class ArtworksController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Artwork  $artwork
+     * @param Artwork $artwork The artwork
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Artwork $artwork)
@@ -70,7 +76,8 @@ class ArtworksController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Artwork $artwork The artwork
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Artwork $artwork)
@@ -81,33 +88,25 @@ class ArtworksController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request The request object
+     * @param Artwork                  $artwork The artwork
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Artwork $artwork)
     {
         // $artwork->update($request->all());
 
-        $artwork->reference = request('reference');
-        $artwork->title = request('title');
-        $artwork->artist = request('artist');
-        $artwork->media = request('media');
-        $artwork->dimensions = request('dimensions');
-        $artwork->date = request('date');
-        $artwork->description = request('description');
-        $artwork->notes = request('notes');
-        $artwork->save();
+        $artwork->update(request(['reference', 'title', 'artist', 'media', 'dimensions', 'date', 'description', 'notes']));
 
         return redirect('/artworks');
-
-        // return view('artworks.update', ['artwork' => $artwork]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Artwork $artwork The artwork
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Artwork $artwork)
