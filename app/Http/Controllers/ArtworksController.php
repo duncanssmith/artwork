@@ -56,10 +56,17 @@ class ArtworksController extends Controller
     public function store()
     {
         Artwork::create(
-            request(
-                ['reference', 'title', 'artist',
-                 'media', 'dimensions', 'date',
-                 'description', 'notes']
+            request()->validate(
+                [
+                    'title' => ['required'],
+                    'artist' => ['required', 'min:2'],
+                    'reference' => ['required', 'min:4', 'max:4'],
+                    'media' => [],
+                    'dimensions' => [],
+                    'date' => [],
+                    'description' => [],
+                    'notes' => []
+                ]
             )
         );
 
@@ -101,10 +108,17 @@ class ArtworksController extends Controller
     public function update(Request $request, Artwork $artwork)
     {
         $artwork->update(
-            request(
-                ['reference', 'title', 'artist',
-                 'media', 'dimensions', 'date',
-                 'description', 'notes']
+            request()->validate(
+                [
+                    'title' => ['required'],
+                    'artist' => ['required', 'min:2'],
+                    'reference' => ['required', 'min:4', 'max:4'],
+                    'media' => [],
+                    'dimensions' => [],
+                    'date' => [],
+                    'description' => [],
+                    'notes' => []
+                ]
             )
         );
 

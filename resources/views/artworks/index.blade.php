@@ -6,9 +6,7 @@
     @endsection
 
     <div class="content">
-        <div class="">
-            Artworks
-        </div>
+        <h2>Artworks</h2>
 
         <table>
             <thead>

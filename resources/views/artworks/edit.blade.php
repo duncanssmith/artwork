@@ -49,6 +49,17 @@
                 <button class="btn btn-sm btn-outline btn-info" type="submit">Update artwork</button>
             </div>
 
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+
         </form>
 
         <form method="POST" action="/artworks/{{ $artwork->id }}">
