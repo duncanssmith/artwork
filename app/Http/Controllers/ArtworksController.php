@@ -55,7 +55,13 @@ class ArtworksController extends Controller
      */
     public function store()
     {
-        Artwork::create(request(['reference', 'title', 'artist', 'media', 'dimensions', 'date', 'description', 'notes']));
+        Artwork::create(
+            request(
+                ['reference', 'title', 'artist',
+                 'media', 'dimensions', 'date',
+                 'description', 'notes']
+            )
+        );
 
         return redirect('/artworks');
     }
@@ -70,7 +76,6 @@ class ArtworksController extends Controller
     public function show(Artwork $artwork)
     {
         return view('artworks.show', ['artwork' => $artwork]);
-
     }
 
     /**
@@ -95,9 +100,13 @@ class ArtworksController extends Controller
      */
     public function update(Request $request, Artwork $artwork)
     {
-        // $artwork->update($request->all());
-
-        $artwork->update(request(['reference', 'title', 'artist', 'media', 'dimensions', 'date', 'description', 'notes']));
+        $artwork->update(
+            request(
+                ['reference', 'title', 'artist',
+                 'media', 'dimensions', 'date',
+                 'description', 'notes']
+            )
+        );
 
         return redirect('/artworks');
     }
