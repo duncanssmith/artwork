@@ -30,6 +30,9 @@ Route::get('/about', 'PagesController@about');
 Route::get('/login', 'PagesController@login');
 
 Route::resource('artworks', 'ArtworksController');
+
+Route::resource('artists', 'ArtistsController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
