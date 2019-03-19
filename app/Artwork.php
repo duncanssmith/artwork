@@ -22,4 +22,9 @@ class Artwork extends Model
     // Or use this - negated fields that can't be mass assigned - empty means all fields can be assigned
     // protected $guarded = [];
 
+    public function artist()
+    {
+        return $this->belongsTo(Artist::class);
+    }
+
 }

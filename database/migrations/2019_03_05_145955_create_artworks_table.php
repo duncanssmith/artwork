@@ -16,7 +16,7 @@ class CreateArtworksTable extends Migration
         Schema::create('artworks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reference', 16)->nullable();
-            $table->string('artist', 255)->nullable();
+            $table->unsignedInteger('artist_id');
             $table->string('title', 255)->nullable();
             $table->string('media', 255)->nullable();
             $table->string('dimensions', 32)->nullable();

@@ -59,7 +59,7 @@ class ArtworksController extends Controller
             request()->validate(
                 [
                     'title' => ['required'],
-                    'artist' => ['required', 'min:2'],
+                    'artist' => ['required'],
                     'reference' => ['required', 'min:4', 'max:4'],
                     'media' => [],
                     'dimensions' => [],
@@ -111,7 +111,7 @@ class ArtworksController extends Controller
             request()->validate(
                 [
                     'title' => ['required'],
-                    'artist' => ['required', 'min:2'],
+                    'artist' => ['required'],
                     'reference' => ['required', 'min:4', 'max:4'],
                     'media' => [],
                     'dimensions' => [],
