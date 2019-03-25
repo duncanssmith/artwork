@@ -11,17 +11,7 @@ class PagesController extends Controller
         return view('artwork');
     }
 
-    public function login() 
-    {
-        return view('login');
-    }
-
-    public function welcome() 
-    {
-        return view('welcome');
-    }
-
-    public function about() 
+    public function about()
     {
         return view('about');
     }
