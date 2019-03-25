@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Artwork;
 
-class ArtworksController extends Controller
+class XArtworksController extends Controller
 {
     public function index()
     {
